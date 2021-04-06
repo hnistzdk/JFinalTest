@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../resources/layui/css/layui.css" media="all">
+    <script src="resources/layui/layui.all.js" charset="utf-8"></script>
+    <style type="text/css">
+        body{
+            width: 1600px;
+            height: 1600px;
+            border: 1px solid #009E94;
+            background-color: #353538;
+        }
+        #text{
+            opacity: 0.9;
+            background-color: white;
+            width: 500px;
+            height: 300px;
+            border: 1px solid #00F7DE;
+            position: absolute;
+            top: 250px;
+            left: 550px;
+        }
+        h3{
+            text-align: center;
+            font-size: 20px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div id="text">
+        <h3>请输入相关信息</h3>
+        <form class="layui-form" name="userForm" method="get" action="http://localhost:80/Test/login">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+                    <button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    $('#reset').click(function () {
+        $('#id').html('');
+        $('#username').html('');
+        $('#password').html('');
+    })
+</script>
+</html>

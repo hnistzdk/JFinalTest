@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+<script src="resources/statics/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        function a1() {
+            let name=$('#name').val();
+            $.ajax({
+                url:"http://localhost/myAjax",
+                data:{"name":name},
+                success:function (data) {
+                    console.log(data.toString());
+                    if(data.toString()=="ok"){
+                        $('#info').css("color","green");
+                    }else {
+                        $('#info').css("color","red");
+                    }
+                    $('#info').html(data);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div>
+        用户名：
+        <input type="text" id="name" onblur="a1()">
+        <span id="info"></span>
+    </div>
+</body>
+</html>
