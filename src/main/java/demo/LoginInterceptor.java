@@ -13,18 +13,14 @@ public class LoginInterceptor implements Interceptor {
     @Override
     public void intercept(Invocation invocation) {
         Controller controller = invocation.getController();
+        System.out.println("执行了"+invocation.getMethodName()+"方法");
         invocation.invoke();
-        boolean returnValue = invocation.getReturnValue();
-//        String username = controller.get("username");
-//        String password = controller.get("password");
-//        if (username.equals("zdk")&&password.equals("123")) {
-//            controller.render("loginedPage.html");
-//        }
-        if(returnValue){
+        UserController target = invocation.getTarget();
+        boolean checkLogin = target.checkLogin();
+        if(checkLogin){
             controller.render("/view/loginedPage.html");
         }
         else {
-            controller.removeSessionAttr("username");
             controller.renderError(403);
         }
         //invocation.invoke();

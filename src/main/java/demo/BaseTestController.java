@@ -48,10 +48,10 @@ public class BaseTestController extends Controller {
         //renderQrCode(data, 200, 200, 'M');
     }
     @Test
-    public void fileUpload(UploadFile file){
+    public void fileUpload(){
         //报错  但实际上传成功
 
-        file = getFile();
+        UploadFile file = getFile();
         String uploadPath = file.getUploadPath();
         FileRender fileRender=new FileRender(uploadPath);
         fileRender.render();
