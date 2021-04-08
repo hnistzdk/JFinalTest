@@ -9,7 +9,7 @@ public class Start{
     public static void main(String[] args) {
         UndertowServer.create(DemoConfig.class).configWeb(builder->{
             builder.addFilter("MyFilter", "com.zdk.filter.MyFilter");
-            builder.addFilterUrlMapping("MyFilter", "/view/Test/loginedPage.html");
+            builder.addFilterUrlMapping("MyFilter", "/view/loginedPage.html");
         }).start();
         //UndertowServer.start(DemoConfig.class,80, true);
     }

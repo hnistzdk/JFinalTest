@@ -4,9 +4,6 @@ package demo;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
-import com.jfinal.ext.interceptor.GET;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @author zdk
@@ -24,12 +21,12 @@ public class LoginInterceptor implements Interceptor {
 //            controller.render("loginedPage.html");
 //        }
         if(returnValue){
-            controller.render("loginedPage.html");
+            controller.render("/view/loginedPage.html");
         }
         else {
             controller.removeSessionAttr("username");
             controller.renderError(403);
         }
-        invocation.invoke();
+        //invocation.invoke();
     }
 }
